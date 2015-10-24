@@ -41,8 +41,6 @@ class ModelMetaClass(type):
 		attrs['__insert__'] = 'INSERT INTO %s (%s,%s) VALUES (%s)' %(tableName, ','.join(no_pri_field), primaryKey, _getValueString(len(no_pri_field) + 1))
 		attrs['__update__'] = 'UPDATE %s SET %s WHERE %s=?' %(tableName, ','.join(list(map(lambda f: '%s=?' %f, no_pri_field))), primaryKey)
 		attrs['__delete__'] = 'DELETE FROM %s WHERE %s=?' %(tableName,primaryKey)
-
-		#return super(ModelMetaClass,cls).__new__(cls, name, bases, attrs)
 		return type.__new__(cls, name, bases, attrs)
 
 

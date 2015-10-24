@@ -1,9 +1,9 @@
 config = {
 	'host':'127.0.0.1',
 	'port':3306,
-	'user':'root',
-	'password':'root',
-	'db':'test',
+	'user':'www-data',
+	'password':'www-data',
+	'db':'mywebapp',
 	'autocommit':True,
 	'charset':'utf8'
 }

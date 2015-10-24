@@ -23,13 +23,11 @@ class Model(dict,metaclass=ModelMetaClass):
 			if k not in self.__mapping__:
 				raise ValueError("Database table '%s' does not have '%s' field" %(self.__table__, k))
 
-	
 	def __getattr__(self, key):
 		try:
 			return self[key]
 		except Exception as e:
 			raise AttributeError('No Such attribute named %s' %key)
-		
 
 	def __setattr__(self, key, value):
 		self[key] = value
@@ -114,4 +112,3 @@ class Model(dict,metaclass=ModelMetaClass):
 		rs = yield from execute(sql, args)
 		if rs!= 1:
 			logging.warning('Entry remove failed')
-		
